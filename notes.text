@@ -1,0 +1,66 @@
+1
+""""
+great way to look up for a word in a file using the terminal
+
+>>> file=open("data.json", 'r')
+>>> content=file.read()
+>>> "rain" in content
+True
+>>> "vvvv" in content
+False
+
+""""""""""""""""
+2
+""""""""""""""""""""""""
+>>> dir(difflib)
+['Differ', 'HtmlDiff', 'IS_CHARACTER_JUNK', 'IS_LINE_JUNK', 'Match', 'SequenceMatcher', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_calculate_ratio', '_check_types', '_count_leading', '_file_template', '_format_range_context', '_format_range_unified', '_legend', '_mdiff', '_namedtuple', '_nlargest', '_styles', '_table_template', '_test', 'context_diff', 'diff_bytes', 'get_close_matches', 'ndiff', 'restore', 'unified_diff']
+>>> from difflib import SequenceMatcher
+>>> SequenceMatcher (None, "rainn", "rain").ratio()
+0.8888888888888888
+>>> SequenceMatcher (None, "Rainn", "rain").ratio() 
+0.6666666666666666
+>>> SequenceMatcher (None, "Rain", "rain").ratio()  
+0.75
+
+"""""""
+3
+""""""""""""""""
+method to compare with a prorblity.
+
+get_close_matches ("rainnn", ["help", "pyramid", "rain"])
+['rain']
+
+""""""""""""""
+4
+"""""""""""""""
+>>> import json 
+>>> data=json.load(open("data.json"))
+>>> get_close_matches ("rainnn", data.keys())
+['rain', 'train', 'rainy']
+>>> get_close_matches ("rainnn", data.keys(), n=5) 
+['rain', 'train', 'rainy', 'grain', 'drain']
+>>> get_close_matches ("rainnn", data.keys())[0]   
+'rain'
+
+""""""""""""""""""
+5
+*****************
+>>> a=1
+>>> "hey %s there" %a
+'hey 1 there'
+>>>
+**************
+6
+******************************
+>>> get_close_matches("rainmmm",data.keys(),cutoff=0.8) 
+[]
+>>> get_close_matches("rainmmm",data.keys(),cutoff=0.)  
+['rain', 'train', 'rainy']
+>>> get_close_matches("rainmmm",data.keys(),cutoff=0.1) 
+['rain', 'train', 'rainy']
+>>> 
+************************************
+7
+******************
+
+*******************
